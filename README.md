@@ -51,7 +51,7 @@ mean_and_std = (grepl("activityId" , colNames) |
 setForMeanAndStd <- TotalData[ , mean_and_std == TRUE]
 setWithActivityNames <- merge(setForMeanAndStd, activityLabels, by='activityId', all.x=TRUE)
 
-# New tidy (second) 
+#New tidy (second) 
 secondTidySet <- setWithActivityNames %>% group_by(activityId, subjectId) %>% summarize_all(funs(mean))
 secondTidySet <- secondTidySet[order(secondTidySet$subjectId, secondTidySet$activityId),]
 
